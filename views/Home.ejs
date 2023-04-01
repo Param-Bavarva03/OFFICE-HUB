@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | OfficeHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/Css/Home_page.css">
+    <link rel="stylesheet" href="/Css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='shortcut icon' href='/Images/favicon.ico' type='image/x-icon' >
+</head>
+
+<body>
+    <%- include('nav')%>
+    <main>
+        <div id="back" class="search px-10 pt-2 pb-2 h-24">
+            <div class="flex flex-row items-center justify-between">
+                <div class="flex flex-row meneu-left">
+                    <form class="my-7 mx-5" action="#">
+                        <input class="w-72 ml-32 mx-1" type="text" placeholder=" Search Doc" name="search">
+                        <button type="submit"><i class="fa fa-search h-4"></i></button>
+                    </form>
+                    <a href="/message"><img class="msg w-8 my-7 mr-16 rounded-3xl" src="/Images/msg.png" alt="msg"></a>
+                </div>
+                <dev class="menu-right">
+                    <a class="text-xl" href="#hello">Your Teams</a>
+                    <!-- <button onclick="get()" class="text-xl">Your Teams</button> -->
+                </dev>
+            </div>
+        </div>
+        <div class="main">
+            <!-- Container 1 -->
+            <div class="cont1 flex flex-row">
+                <div class="C1left pt-48">
+                    <!-- <h1>
+                        <pre id="pre">
+                            Document Management 
+                                System (DMS)
+                            </pre>
+                    </h1> -->
+                    <ul id="feature">
+                        <li>Document Input</li>
+                        <li>Document Uploading</li>
+                        <li>Document Search</li>
+                        <li>Workflow Automation</li>
+                        <li>Document Security</li>
+                        <li>Create/Manage/Join Team</li>
+                    </ul>
+                    <div class="TryFree w-52 h-9" id="hello"><button class="mx-4">Try It For Free Now</button></div>
+                </div>
+
+                <div class="C1right w-3/6">
+                    <img src="/Images/Doc_gif.gif" alt="Doc_gif">
+                </div>
+            </div>
+
+            <div>
+                <div class="flex flex-row justify-between p-10 border border-4 bg-[#c5e4ff]">
+                    <div class="meneu-left">
+                    <div class="text-3xl font-bold text-[#000000]">
+                        Your Teams
+                    </div>
+                    <div class="flex flex-row font-bold p-4">
+                        <% if (team.length) {%>
+                        <% for (var i=0; i <team.length; i++ ) { %>
+                            <% if (team[i].user1==data.username || team[i].user2==data.username || team[i].user3==data.username || team[i].user4==data.username) {%>
+                            <a href="../yourteam/<%=team[i].tcode%>" class="p-3 border border-2 border-[#000000] bg-[#7da4e3] rounded-xl text-[#000000] m-4 w-24 hover:bg-[#FFFFFF] hover:text-[#16206d]">
+                                <%= team[i].team_name %>
+                            </a>
+                            <% } %>
+                        <% } %>
+                        <% } else {%>
+                            <div class="p-4 m-4 font-xl">
+                                Currently not in any team
+                            </div>
+                        <% } %>
+                    </div>
+                    </div>
+                    <a class="menu-right" href="#back">
+                        <div>^<br>^<br>^</div>
+                    </a>
+                </div>
+            </div>
+            <!-- Container 2 -->
+            <!-- <div class="cont2 my-2 flex flex-row">
+                <div class="C2left w-4/6 h-66 bg-[#7da4e3]">
+                    <pre class="my-16 -mx-24">
+                        <p class="p-12">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ipsum, earum nostrum ratione, exercitationem error neque et deserunt aut quos maiores ab numquam omnis illo eveniet expedita repudiandae. Qui, sint? Distinctio expedita iure deleniti corrupti modi architecto odit maxime error quod et officia harum aspernatur quisquam, ex hic obcaecati deserunt atque id culpa itaque iusto quas omnis labore veniam! Saepe doloribus dolores repudiandae? Laudantium repudiandae minima iure accusantium officia eos consequuntur maxime in, totam rem dicta alias quasi nulla. Dolor ad maiores, aspernatur minima laudantium reiciendis nam voluptatum, assumenda unde modi delectus ut aperiam facilis eius accusantium, nostrum magni tempore.
+                        </p>
+                    </pre>
+                </div>
+
+                <div class="C2right py-5 w-2/6 h-66 flex flex-col">
+                    <div class="mx-8 w-auto h-11 my-6 flex flex-row">
+                        <button class="YourTeam w-32 hover:text-[#4958FE] hover:bg-[#000000]">Your Team</button>
+                        <p class="w-48 mx-5 my-2 text-xl">See Your All Teams</p>
+                    </div>
+                    <div class="mx-8 w-auto h-11 my-6 flex flex-row">
+                        <button class="JoinTeam w-32 hover:text-[#4958FE] hover:bg-[#000000]">Join Team</button>
+                        <p class="mx-5 my-2 text-xl">Join Team with Code</p>
+                    </div>
+                    <div class="mx-8 w-auto h-11 my-6 flex flex-row">
+                        <button class="CreateTeam w-32 hover:text-[#4958FE] hover:bg-[#000000]">Create Team</button>
+                        <p class="mx-5 my-2 text-xl">Create New Team</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- //- Container 3 -->
+            <div class="cont3 flex flex-row">
+                <div class="C3left w-4/6 h-96">
+                        <!-- //- <pre class="my-16 -mx-24"> -->
+                        <p class="p-12">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum maiores dolores reiciendis sit, harum placeat velit rem illum laudantium facere totam molestiae rerum corporis fugit reprehenderit nesciunt blanditiis maxime quidem molestias praesentium tempore tempora earum adipisci. Nam ullam, accusantium eos, velit ipsam praesentium animi architecto libero veniam cupiditate excepturi, laboriosam ea. A, fuga veniam illo repellat nihil cum, ut est itaque perferendis delectus adipisci laudantium quasi blanditiis omnis id iste architecto natus illum tempore obcaecati, possimus impedit quidem? Asperiores dolorum ab corrupti quas! Consequatur itaque, deleniti veritatis vel expedita sit et obcaecati totam animi suscipit eaque recusandae ipsum sapiente ut.
+                        </p>
+                            <!-- //- </pre> -->
+                </div>
+
+                <div class="C3right py-5 w-2/6 h-96 flex flex-col bg-[#d8deff]">
+                    <div class="mx-8 w-auto h-11 my-6 flex flex-row">
+                        <!-- <button class="YourTeam w-44">Upload Document</button> -->
+                        <a class="YourTeam w-46 p-2">Upload Documents</a>
+                        <p class="w-48 mx-5 my-2 text-xl">Upload Inside Teams</p>
+                    </div>
+                    <div class="mx-8 w-auto h-11 my-6 flex flex-row">
+                        <a class="JoinTeam w-auto pr-2 pl-2 hover:text-[#4958FE] hover:bg-[#000000] flex flex-row justify-between items-center" href="/DocFlow">Approve Document</a>
+                        <p class="mx-5 my-2 text-xl">Approval Process</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cont4 bg-[#e4f2ff]">
+                <p class="text-4xl py-20 px-20">Other Content Of Doc Management System</p>
+            </div>
+
+
+            <div class="cont5">
+                <div class="C5left w-1/2 mx-10 my-5 flex flex-row">
+                    <div class="slide-container swiper">
+                        <p class="testonomial_text mt-2 -mb-5 px-2">Our Testinomials</p>
+                        <div class="slide-content my-7">
+                            <div class="card-wrapper swiper-wrapper">
+                                <% for (var i=0; i <feed.length; i++ ) { %>
+                                <div class="card swiper-slide">
+                                    <div class="border-2 border-black h-96">
+                                        <div class="h-24 flex justify-center items-center m-2 bg-[#4070f4] rounded-xl">
+                                            <%= feed[i].feed_name%>
+                                        </div>
+                                        <textare class="m-2 flex h-64 justify-center items-center border border-3 border-black">
+                                            <!-- <div> -->
+                                                <%= feed[i].feed_des%>
+                                            <!-- </div> -->
+                                            </textarea>
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev swiper-navBtn"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+
+                <div class="C5right">
+                    <p class="feedback-text px-2">Give Your Feedback</p>
+                    <div class="bg-[#5778ff] m-4 mr-8 ml-8 rounded-3xl h-96">
+
+                        <form method="post" action="/feedback" id="form2">
+                            <input class="enter-name mx-14 my-7 w-60 rounded-xl border border-2 border-black p-2" id="feedname" name="feedname" type="text" placeholder="Enter Your Name" required>
+                            <textarea class="textarea mx-14 border border-2 border-black rounded-xl p-2" id="feeddes" name="feeddes" cols="55" rows="7" placeholder="Enter Your Review" required>
+                            </textarea>
+                            <!-- <button >Submit</button> -->
+                            <button type="submit"
+                            class="mx-14 mt-4 p-2 rounded-xl border-bold bg-[#FFFFFF] hover:bg-[#000000] text-[#000000] font-bold hover:text-[#FFFFFF]">Submit</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+    <%- include('footer')%>
+</body>
+<script src="/JavaScript/swiper-bundle.min.js"></script>
+<script src="/JavaScript/Testinomial_js.js"></script>
+<script>
+    // function get(){
+    //     document.getElementById("hello")
+    //     document.scrollingElement("hello")
+    // }
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Css/ProjectFlow.css">
+    <link rel='shortcut icon' href='/Images/favicon.ico' type='image/x-icon' >
+</head>
+<body>
+    <header>
+		<h1>Document Workflow</h1>
+        <a href="/home">Home</a>
+	</header>
+	<nav>
+		<ul>
+            <li><a href="/DocFlow">New Document</a></li>
+            <li><a href="/ApprovedDoc">Approved Document</a></li>
+            <li><a href="/RejectedDoc">Rejected Document</a></li>
+            <li><a href="/PendingDoc">Pending Document</a></li>
+        </ul>
+    </nav>
+   
+<section>
+    <h2>Approved Documents</h2>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Document Title</th>
+                    <th>Document Type</th>
+                    <th>Date Submitted</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (approval.length) {%>
+                    <% for (var i=0; i <approval.length; i++ ) { %>
+                        <tr>
+                            <td><%= approval[i].username %></td>
+                            <td><%= approval[i].DocTitle %></td>
+                            <td><%= approval[i].DocType %></td>
+                            <td><%= approval[i].DocDate %></td>
+                            <td><a href="./<%= approval[i].DocTitle %>"><%= approval[i].Docpath %></a></td>
+                        </tr>
+                    <% } %>
+                <% } else {%>
+                    <tr>
+                    <td >
+                        Currently 
+                    </td>
+                    <td>
+                        not 
+                    </td>
+                    <td >
+                        any 
+                    </td>
+                    <td >
+                        Approved
+                    </td>
+                    <td >
+                        Doc
+                    </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+        </table>
+    </div>
+</section>
+
+
+</body>
+</html>
+
+

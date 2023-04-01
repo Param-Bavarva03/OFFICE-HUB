@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | OfficeHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='shortcut icon' href='/Images/favicon.ico' type='image/x-icon' >
+    <link rel="stylesheet" href="/Css/Home_page.css">
+    <style>
+        .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #ccc;
+      margin-bottom: 10px;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #4CAF50;
+      width: 0%;
+    }
+    
+    .checkbox {
+      margin-right: 10px;
+    }
+
+    </style>
+</head>
+<body>
+<%- include('nav')%>
+<main>
+    <div class="m-6 h-auto rounded-xl p-2">
+        <div class="border border-2 border-black rounded-xl h-46 p-4 mb-4 flex items-center justify-between bg-[#afd2f4]">
+            <div class="menu-left text-3xl ml-4"><%=team[0].team_name%></div>
+            <div class="menu-right font-bold flex flex-col justify-center items-center">
+                <div class="text-xl">Members</div>
+                <div><%= team[0].user1%></div>
+                <div><%= team[0].user2%></div>
+                <div><% if (team[0].user3!=null) { %><%= team[0].user3%> <% } %></div>
+                <div><% if (team[0].user4!=null) { %><%= team[0].user4%><% } %></div>
+            </div>
+        </div>
+        <div class="ml-max">
+            <div class="relative h-12 mb-4 -w-screen">
+                <div>
+                    <a href="../index/<%=team[0].tcode%>" class="text-xl border border-2 border-black rounded-xl hover:font-bold p-2">Upload</a>
+                </div>
+                <div class="absolute bottom-0 right-0">
+                    <a href="/Message"><img class="msg w-12 rounded-3xl" src="/Images/msg.png" alt="msg"></a>
+                </div>
+              </div>
+        
+        </div>
+            <div class="w-96 m-4 bg-[#e2e8f0] p-6 border-2 border-black">
+                <h1 class="mb-6 text-2xl font-bold text-[#7da4e3] flex flex-col justify-center items-center">
+                    Initiate Project</h1>
+                <!-- <form method="post" action="/yourteam/project/<%=team[0].tcode%>" id="form2" class="space-y-3"> -->
+                <form method="post" action="/yourteam/<%=team[0].tcode%>" id="form2" class="space-y-3">
+                    <div>
+                        <label class='text-[#000000] '>Project Name</label>
+                        <input type="text" id="pname" name="pname"
+                            class="w-full mt-2 py-3 px-2 bg-white rounded-xl" required>
+                    </div>
+                    <button type="submit"
+                        class="py-3 px-6 rounded-xl border-bold bg-[#FFFFFF] hover:bg-[#7da4e3] text-[#7da4e3] font-bold hover:text-[#FFFFFF]">Initiate</button>
+                </form>
+        </div>
+            <div class="h-auto grid grid-cols-3 grid-flow-row"> 
+                <% for (var i=0; i <pro.length; i++ ) { %>
+                <div class="m-4 border border-black rounded-xl p-4 h-44 w-96">
+
+                    <div class="font-bold mb-4 text-xl">
+                        <%=pro[i].pro_name%>
+                    </div>
+                    <div clas="object-none object-bottom">
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill"></div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            
+                            <!-- <label><input id="1" checked="true" type="checkbox" class="checkbox<%=i%>" onchange="updateProgress()" /> </label> -->
+                            <label><input type="checkbox" class="checkbox" onclick="updateProgress()"/> </label>
+                            <label><input type="checkbox" class="checkbox" onclick="updateProgress()"/> </label>
+                            <label><input type="checkbox" class="checkbox" onclick="updateProgress()"/> </label>
+                            <label><input type="checkbox" class="checkbox" onclick="updateProgress()"/> </label>
+                            <!-- <label><input type="checkbox" class="checkbox<%=i%>" onclick="updateProgress()" /> </label>
+                            <label><input type="checkbox" class="checkbox<%=i%>" onclick="updateProgress()" /> </label>
+                            <label><input type="checkbox" class="checkbox<%=i%>" onclick="updateProgress()" /> </label> -->
+                        </div>
+                    </div>
+                    <div class="flex flex-col mt-4 items-center justify-between">
+                        <button type="submit" onclick="data()"
+                        class="rounded-xl w-auto p-2 flex flex-col justify-betweenborder border-2 border-black border-bold bg-[#FFFFFF] hover:bg-[#7da4e3] text-[#7da4e3] font-bold hover:text-[#FFFFFF]">Submit</button>
+                    </div>
+                </div>
+                <!-- <script>
+                    function updateProgress() {
+                    const checkboxes = document.querySelectorAll('.checkbox<%=i%>');
+                    let checkedCount = 0;
+                    for (let i = 0; i < checkboxes.length; i++) {
+                        checkboxes[0].checked="true";
+                    if (checkboxes[i].checked) {
+                        console.log(i,":",checkboxes[i].checked);
+                        checkedCount++;
+                    }
+                }
+                const progress = document.querySelector('.progress-bar-fill');
+                const progressPercent = checkedCount / checkboxes.length * 100;
+                progress.style.width = progressPercent + '%';
+                }
+                </script> -->
+                <!-- <label><input type="checkbox" class="checkbox" onclick="updateProgress()" /> Checkbox 4</label> -->
+                <% } %>
+            </div>
+    </div>
+</main>
+<%- include('footer')%>
+</body>
+<script>
+    function updateProgress() {
+    const checkboxes = document.querySelectorAll('.checkbox');
+    let checkedCount = 0;
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[0].checked="true";
+    if (checkboxes[i].checked) {
+        console.log(i,":",checkboxes[i].checked);
+        checkedCount++;
+    }
+}
+const progress = document.querySelector('.progress-bar-fill');
+const progressPercent = checkedCount / checkboxes.length * 100;
+progress.style.width = progressPercent + '%';
+} 
+
+// function data(){
+//     const checkboxes = document.querySelectorAll('.checkbox<%=i%>');
+//     p=75
+//     let checkedCount = 0;
+//     for (let i = 0; i < checkboxes.length; i++) {
+//         checkboxes[0].checked="true";
+//     if (checkboxes[i].checked) {
+//         console.log(i,":",checkboxes[i].checked);
+//         checkedCount++;
+//     }
+// }
+
+// const progress = document.querySelector('.progress-bar-fill');
+// const progressPercent = checkedCount / checkboxes.length * 100;
+// const p = 75
+// // if(p>progressPercent || p<progressPercent)
+// // {
+// //     console.log(progressPercent);
+// //     p=progressPercent;
+// // }
+// progress.style.width = p + '%'; 
+// }
+
+</script>
+</html>

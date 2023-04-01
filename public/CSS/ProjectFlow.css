@@ -1,0 +1,79 @@
+/* style the header */
+header {
+	background-color: #0072C6;
+	color: white;
+	padding: 20px;
+}
+
+/* style the navigation links */
+nav {
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+}
+
+nav li {
+	margin: 0 10px;
+}
+
+nav a {
+	color: #0072C6;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+nav a:hover {
+	color: #333;
+}
+/* style the main content sections */
+main {
+	padding: 20px;
+}
+
+section {
+	margin-bottom: 40px;
+}
+
+h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table th {
+	background-color: #0072C6;
+	color: white;
+	padding: 10px;
+	text-align: left;
+}
+
+table td, table th {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+button {
+	background-color: #0072C6;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #005FAB;
+}

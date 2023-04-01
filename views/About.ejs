@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/Css/Home_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>About | OfficeHub</title>
+    <!-- link(rel='shortcut icon', href='/Images/favicon.ico', type='image/x-icon') -->
+    <link rel='shortcut icon' href='/Images/favicon.ico' type='image/x-icon' >
+    <style>
+        * {box-sizing: border-box;}
+    
+        body {
+          margin: 0; 
+          font-family: font-family: 'Montserrat', sans-serif;
+          font-size: 1rem;
+          background-color: black;
+          color: #fff;
+        }
+        
+        /*====== typography ======*/
+        
+        h1 {
+           font-weight: 700;
+           color: #fff;
+           font-size: 2.5rem;
+        }
+        
+        h2 {
+           font-weight: 700;
+           color: #000;
+           font-size: 1.75rem;
+        }
+        
+        .intro {
+          font-size: 1.15rem;
+          margin-bottom: 2.5em;
+        }
+        
+        span {
+           color: #fda039;
+        }
+        
+        .black {
+          font-weight: 700;
+          color: #000;
+        }
+        
+        /*==== main-grid Layout ====*/
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+            grid-column-gap: 2em;
+        }
+        
+        /* ==== Layout ====*/
+        
+        .header {
+          background: #000;
+        }
+        
+        .header-content{
+          display: flex;
+          flex-direction: row;
+          grid-column: 2 / -2;
+        }
+        
+        .logo {
+          background: #fda039;
+          color: #000;
+          font-weight: 700;
+          padding: 1em .5em;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: 1.25rem;
+        }
+        
+        .navigation {
+          position: fixed;
+          background: #000;
+          width: 100%;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 100%;
+          transform: translateX(0);
+          transition: transform 250ms;
+        }
+        
+        .nav-list {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-direction: column;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          font-size: 3rem;
+        }
+        
+        .nav-link {
+          text-decoration: none;
+          color: #fda039;
+        }
+        
+        .nav-link:hover,
+        .nav-link:focus,
+        .close-nav:hover,
+        .close-nav:focus,
+        .open-nav:hover,
+        .open-nav:focus {
+          color: #fff;
+          cursor: pointer;
+        }
+        
+        .open-nav {
+          border: 0;
+          background: 0;
+          color: #fff;
+          padding: .5em;
+          margin-left: auto;
+          font-size: 1em;
+        }
+        
+        .navigation-open {
+          transform: translateX(-100%);
+        }
+        
+        .close-nav {
+            border: 0;
+            background: 0;
+            color: #fda039;
+            font-weight: 700;
+            font-size: 3rem;
+            padding: .5em;
+            position: absolute;
+        }
+        
+        .current {
+          border-bottom: 1px solid #fda039;
+        }
+        
+        main {
+          background-color: #fff;
+          color: #000;
+          grid-column: 2 /-2;
+        }
+        
+          .head {
+          grid-column: 2 / -2;
+          text-align: center;
+          margin-top: 3em;
+          margin-bottom: 3em;
+        }
+        
+        .page-title {
+          color: #7D5A50;
+          font-size: 2.5rem;
+          justify-self: center;
+        }
+        
+        .main-image {
+          grid-column: 2 / -2;
+          object-fit: cover;
+          max-width: 100%;
+          display: block;
+          box-shadow: 10px 10px 250px #000;
+        }
+        
+        .main-text {
+          grid-column: 2 / -2;
+          margin-top: 3em;
+          margin-bottom: 3em;
+        }
+        
+        .section-title::after {
+          content: "";
+          display: block;
+          width: 100px;
+          height: 3px;
+          margin-top: 1em;
+          background: #fda039;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .sub {
+          margin-top: 3em;
+        }
+        
+        
+        .footer > * {
+            grid-column: 2 / -2;
+        }
+        
+        .footer {
+           background: #ebebeb;  
+           color: #000;
+        }
+        
+        .social {
+          order: -1;
+          font-size: 1.75rem;
+          padding-top: 3em;
+          padding-bottom: 2em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+        }
+        
+        .icon {
+          color: #000;
+        }
+        .icon:hover,
+        .icon:focus {
+          cursor: mouse;
+          color: #fda039;
+        }
+        
+        .footer-text {
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .end {
+          text-align: center;
+          margin-bottom: 0;
+        }
+        .copyright {
+          font-size: 1.1rem;
+          padding-top: 1em;
+          text-align: center;
+          font-weight: 700;
+        }
+        
+        .footer-text,
+        .copyright {
+          opacity: .4;
+          }
+         
+        
+          @media (min-width: 600px) {
+              .main-grid {
+                grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(20px, 320px)) minmax(1em, 1fr);
+            }
+            
+            .open-nav,
+            .close-nav {
+              display: none;
+            }
+            
+            .navigation {
+              position: initial;
+            }
+            
+            .nav-list {
+              flex-direction: row;
+              justify-content: flex-start;
+            }
+            
+            .nav-link {
+              margin-left: 1em;
+              font-size: 1.7rem;
+            }
+            
+            .logo {
+              padding: .5em 1em;
+              text-align: center;
+            }
+            
+            .head {
+              grid-column: 3 / -3;
+            }
+            
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 5px;
+            background: #fda039;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10px;
+        }
+            
+            .main-image {
+              grid-column: 2;
+              margin-top: 1.3em;
+          
+            }
+            
+            .main-text {
+              grid-column: 3 / span 2;
+              margin-top: 0;
+            }
+            .section-title{
+          color: #7D5A50;
+            }
+            .section-title::after {
+          margin-left: 0;
+        }
+            
+            
+            
+            .footer {
+              padding-top: 2em;
+              padding-bottom: 2em;
+            }
+            
+            .footer-text {
+              grid-column: 2 / span 2;
+            }
+            
+            .social {
+              grid-column: span1;
+            }
+            
+            .icon {
+              margin: .5em;
+            }
+            
+            .footer-text {
+              width: 50vw;
+              margin-left: 0;
+              order: -1;
+            }
+            
+            .end,
+            .copyright {
+              text-align: start;
+            }
+          }
+        
+        @media(min-width: 700px) {
+          .page-title::after {
+            content: '';
+            display: block;
+            width: 160px;
+            height: 5px;
+            background: #fda039;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10px;
+        }
+        }
+        .button {
+            border : 1px;
+            border: solid;
+            color: white;
+            padding: 10px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 14px;
+            border-color: #7da4e3;
+            background-color: #7da4e3;
+            margin: 15px;
+            font-weight: bold;
+          }
+          .button:hover{
+            background-color: #FFFFFF;
+            color: #7da4e3;
+            border-style: solid;
+            border-color: #7da4e3;
+          }
+    
+    </style>
+</head>
+<body>
+    <%- include('nav')%>
+    <!-- <main class="m-40">
+        <div class="flex justify-center">
+            <p>COMMING SOON</p>
+        </div>
+    </main> -->
+    <main class="main-grid">
+        <div class="head">
+        <h1 class="page-title">About</h1>
+        <p class="subtitle">Strandzz is the place where you can buy clothes,accessories,bags,shoes and many more...</p>
+        </div>
+        <img class="main-image" src="https://www.impactplus.com/hubfs/blog-image-uploads/best-about-us-pages.jpg">
+        
+        <div class="main-text">
+            <h2 class="section-title">"Amazing things will happen when you listen to the consumer.”</h2>
+            <p>We are team of three people: Keval,Vatsal and Goldi. We got the idea about strandzz in july-2022. By the dedicated hard work and gethering knowldge about everything we finally completed this website. </p>
+
+            <h2 class="section-title sub">Our Words </h2>
+            <p>When we got this idea about strandzz we are eger to do this project. Our team enjoy a lot and learn many new things by completing this website . We have worked 3 Months on this project. </p>
+            <p>If you face any kind of question or any query you can contact us .. </p>
+            <a href="/contact"><button class="button">Contact us</button> </a>
+            <section class="content">
+              
+  
+</main>
+    <%- include('footer')%>
+</body>
+</html>
