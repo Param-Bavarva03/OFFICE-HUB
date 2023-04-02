@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const MONGO_URL = 'mongodb+srv://bavarvaparam2:param@cluster0.jgstbqm.mongodb.net/officehub';
+const MONGO_URL = 'Enter your atlash mongodb url here';
 
 mongoose.set("strictQuery", false);
 
